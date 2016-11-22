@@ -1,0 +1,31 @@
+ 
+body {
+  background-image: url('../../img/bg.jpg');
+}
+
+#top{
+
+	background-color:rgba(0, 0, 0, 0.5);
+	width:600px;
+	height:400px;
+	align-content: left
+}
+
+html { 
+  background: url('bg.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+#country{
+
+	width:300px;
+}
+
+#grid{
+
+	
+	align-content: left;
+}
