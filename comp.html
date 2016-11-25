@@ -24,6 +24,27 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
+    <style>
+#main_div{
+
+    
+    font-family:sans-serif;
+    background-color: rgba(0,0,0,0.4);
+
+}
+h3{
+
+    color:white;
+}
+
+#main_form.input{
+
+    width:50px;
+
+}
+
+    </style>
+
 </head>
 <body style="background-image: url('img/bg.jpg')"">
 
@@ -60,26 +81,35 @@
   </div>
 </nav>
 
+<div class="container" style="background-color: white">
+<br>
+<div class="jumbotron" style="background-color: teal;align-content: center;">
+<div>
 
-<div class="bootstrap-iso">
+<input type="text" id="selected_cruise" style="" readonly="true" />
+</div>
+</div>
+</div>
+
+<div id="main_div" class="bootstrap-iso" >
     <div class="container-fluid">
 
 
-       <form role = "form">
+       <form role = "form" action="mailto:someone@example.com?Subject=Hello%20again" method="post" id="main_form">
    
             <div class = "form-group">
 
 
             
    
-                  <LABEL><h3>Number Of travellers</h3></LABEL>
+                  <LABEL><h3><u>Number Of travellers</u></h3></LABEL>
                   <br>
                 <div class="row">
                     <div class="col-sm-6">
                         <label for = "adult" >ADULTS</label>     
                     </div>
                     <div class="col-sm-6">
-                        <select class = "form-control" class="col-sm-6">
+                        <select class = "form-control" id="dropdown-1" class="col-sm-6" style="width:100px" >
                             <option>0</option>
                              <option>1</option>
                             <option>2</option>
@@ -92,7 +122,7 @@
                         <label for = "children" >Children</label> 
                     </div>
                     <div class="col-sm-6">
-                        <select class = "form-control" class="col-sm-6">
+                        <select class = "form-control" id="dropdown-2" class="col-sm-6" style="width:100px">
                             <option>0</option>
                             <option>1</option>
                             <option>2</option>
@@ -106,43 +136,44 @@
                         <LABEL class="control-label" for ="date"><h3>Dates</h3></LABEL>
                     
                     
-                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" style="width:200px;color:black;" />
                     
                 
                 <br>
-                <div class="jumbotron">
-                <div class="table-responsive">
-                    <table class="table table-bordered">
-                        <label for="types"><h3>TYPE</h3></label>
-                        <thead>
-                           <tr>
-                                <th>Inside</th>
-                                <th>Ocean</th>
-                                <th>Balcony</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="success">
-                              <td>Type1</td>
-                                <td>Type2</td>
-                                <td>Type3</td>
-                            </tr>
-                            <tr class="success">
-                                <td>Type1</td>
-                                <td>type2</td>
-                                <td>type3</td>
-                            </tr>
-                            <tr class="success">
-                                <td>type1</td>
-                                <td>type2</td>
-                                <td>type3</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                </div>
+                 <LABEL class="control-label" for ="email"><h3>Email</h3></LABEL>
+                    
+                    
+                        <input class="form-control" id="email" name="email" placeholder="email" type="Email" style="width:400px"/>
+
+                        <br>
+                         <LABEL class="control-label" for ="phone_no"><h3>Phone_no</h3></LABEL>
+                    
+                    
+                        <input class="form-control" id="phone_no" name="phone_no" placeholder="Mobile" type="text" style="width:400px" />
+                        <br>
+                         <LABEL class="control-label" for ="state"><h3>state</h3></LABEL>
+                    
+                    
+                        <input class="form-control" id="state" name="state" placeholder="State" type="text" style="width:200px"/>
+                        <br>
+                         <LABEL class="control-label" for ="Country"><h3>country</h3></LABEL>
+                    
+                    
+                        <input class="form-control" id="country" name="country" placeholder="Country" type="text" style="width:200px" />
+
+                        <br>
+                         <LABEL class="control-label" for ="pin_code"><h3>Pin-code</h3></LABEL>
+                    
+                    
+                        <input class="form-control" id="pin_code" name="pin_code" placeholder="PIN" type="text" style="width:100px"/>
+                        <br>
+                        <button type="submit" onclick="javascript:submit()" class="btn btn-outline-warning">Submit</button>
+<br>
+</form>
+<hr class="star-primary">
+
             </div>
-        </form>
+        
     </div>
 </div>
 
@@ -233,6 +264,7 @@
 <!-- Bootstrap Date-Picker Plugin -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script type="text/javascript" src="js/booking_form.js"></script>
 
 
 <script>
