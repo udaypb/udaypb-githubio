@@ -1,30 +1,99 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
- <meta charset="utf-8">
+	<meta name="keywords" content="Booking-form" />
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="P.B.uday" content="">
 
-    <!--All CSS links-->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script type="text/javascript" src="../script.js"></script>
+<script type="text/javascript" src="jquery.validate.min.js"></script>
 
-    <title>Holiday</title>
-    <link rel="icon" type="image/png" href="img/icon.png">
-    <link rel="stylesheet" href="css/bootstrap.css">
+<title>Booking</title>
+
+
+<!--css links-->
+ <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link href="css/freelancer.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-
-    <!-- Custom Fonts -->
+ <link rel="icon" type="image/png" href="img/icon.png">
+<link rel="stylesheet" type="text/css" href="../styles.css">
+<link rel="stylesheet" type="text/css" href="bootstrap.css">
+ <!-- Custom Fonts -->
 
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
 
-    <style>
+<script type="text/javascript">
+/**
+  * Basic jQuery Validation Form Demo Code
+  * Copyright Sam Deering 2012
+  * Licence: http://www.jquery4u.com/license/
+  */
+(function($,W,D)
+{
+    var JQUERY4U = {};
+
+    JQUERY4U.UTIL =
+    {
+        setupFormValidation: function()
+        {
+            //form validation rules
+            $("#register-form").validate({
+                rules: {
+                    firstname: "required",
+                    lastname: "required",
+                    email: {
+                        required: true,
+                        email: true
+                    },
+                    pin: {
+                        required: true,
+                        maxlength: 6
+                    },
+                    agree: "required",
+                    country:"required",
+                    date:"required",
+                    dropdown_1:"required",
+                    dropdown_2:"required"
+                },
+                
+                messages: {
+                    firstname: "Please enter your firstname",
+                    lastname: "Please enter your lastname",
+                    pin: {
+                        required: "Please provide a pin code of your area",
+                        maxlength: "invalid pin"
+                    },
+                    
+                    dropdown_1:"please select a value",
+                    dropdown_2:"please select a value",
+                    email: "Please enter a valid email address",
+                    country:"this field is required",
+                    date:"this field is required"
+                },
+                submitHandler: function(form) {
+                    form.submit();
+                }
+            });
+        }
+    }
+
+    //when the dom has loaded setup form validation rules
+    $(D).ready(function($) {
+        JQUERY4U.UTIL.setupFormValidation();
+    });
+
+})(jQuery, window, document);
+</script>
+  <style>
 #main_div{
 
     
@@ -32,20 +101,16 @@
     background-color: rgba(0,0,0,0.4);
 
 }
-h3{
+label{
 
-    color:white;
+    color:red;
 }
-
-#main_form.input{
-
-    width:50px;
-
-}
-
-    </style>
+</style>
 
 </head>
+
+
+
 <body style="background-image: url('img/bg.jpg')"">
 
 <!--nav-->
@@ -81,6 +146,9 @@ h3{
   </div>
 </nav>
 
+
+
+
 <div class="container" style="background-color: white">
 <br>
 <div class="jumbotron" style="background-color: teal;align-content: center;">
@@ -91,25 +159,32 @@ h3{
 </div>
 </div>
 
+
+
+
+<!-- HTML form for validation  -->
+<form action="https://script.google.com/macros/s/AKfycbyoiIXLruBU0_yzQtIo1D7ZhM4R-dgIbHV5qGgyrkskfF0ZzV-5/exec" method="post" id="register-form" novalidate="novalidate">
 <div id="main_div" class="bootstrap-iso" >
     <div class="container-fluid">
 
+    <h2 style="color:white"><u>Booking</u></h2>
 
-       <form role = "form" action="mailto:someone@example.com?Subject=Hello%20again" method="post" id="main_form">
-   
-            <div class = "form-group">
+    <div id="form-content">
+        <fieldset>
 
+            <div class="fieldgroup">
+                <label for="firstname" style="color:white">First Name</label><br>
+                <input type="text" name="firstname" placeholder="first-name">
+            </div>
 
-            
-   
-                  <LABEL><h3><u>Number Of travellers</u></h3></LABEL>
-                  <br>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <label for = "adult" >ADULTS</label>     
-                    </div>
-                    <div class="col-sm-6">
-                        <select class = "form-control" id="dropdown-1" class="col-sm-6" style="width:100px" >
+            <div class="fieldgroup">
+                <label for="lastname" style="color:white">Last Name</label><br>
+                <input type="text" placeholder="last-name" name="lastname">
+            </div>
+            <hr>
+            <div class="fieldgroup">
+            <label for="dropdown_1" style="color:white">Adults</label><br>
+            <select class = "form-control" style="border:thin solid black; width:100px;" id="dropdown-1" class="col-sm-6" name="dropdown_1" style="width:100px" >
                             <option>0</option>
                              <option>1</option>
                             <option>2</option>
@@ -117,12 +192,8 @@ h3{
                             <option>4</option>
                             <option>5</option>
                         </select>
-                    </div>
-                    <div class="col-sm-6">
-                        <label for = "children" >Children</label> 
-                    </div>
-                    <div class="col-sm-6">
-                        <select class = "form-control" id="dropdown-2" class="col-sm-6" style="width:100px">
+                        <label for="dropdown_2" style="color:white">Children</label><br>
+                        <select class = "form-control" id="dropdown-2" style="border:thin solid black; width:100px;" name="dropdown_2" class="col-sm-6" >
                             <option>0</option>
                             <option>1</option>
                             <option>2</option>
@@ -130,71 +201,60 @@ h3{
                             <option>4</option>
                             <option>5</option>
                         </select>
-                    </div>
-                </div>
-                    
-                        <LABEL class="control-label" for ="date"><h3>Dates</h3></LABEL>
-                    
-                    
-                        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" style="width:200px;color:black;" />
-                    
-                
-                <br>
-                 <LABEL class="control-label" for ="email"><h3>Email</h3></LABEL>
-                    
-                    
-                        <input class="form-control" id="email" name="email" placeholder="email" type="Email" style="width:400px"/>
-
-                        <br>
-                         <LABEL class="control-label" for ="phone_no"><h3>Phone_no</h3></LABEL>
-                    
-                    
-                        <input class="form-control" id="phone_no" name="phone_no" placeholder="Mobile" type="text" style="width:400px" />
-                        <br>
-                         <LABEL class="control-label" for ="state"><h3>state</h3></LABEL>
-                    
-                    
-                        <input class="form-control" id="state" name="state" placeholder="State" type="text" style="width:200px"/>
-                        <br>
-                         <LABEL class="control-label" for ="Country"><h3>country</h3></LABEL>
-                    
-                    
-                        <input class="form-control" id="country" name="country" placeholder="Country" type="text" style="width:200px" />
-
-                        <br>
-                         <LABEL class="control-label" for ="pin_code"><h3>Pin-code</h3></LABEL>
-                    
-                    
-                        <input class="form-control" id="pin_code" name="pin_code" placeholder="PIN" type="text" style="width:100px"/>
-                        <br>
-                        <button type="submit" onclick="javascript:submit()" class="btn btn-outline-warning">Submit</button>
-<br>
-</form>
-<hr class="star-primary">
-
             </div>
-        
-    </div>
+            <hr>
+
+            <div class="fieldgroup">
+                <label for="email" style="color:white">Email:</label><br>
+                <input type="text" placeholder="email" name="email">
+            </div>
+
+            <div class="fieldgroup">
+                <label for="country" style="color:white">Country:</label><br>
+                <input type="text" placeholder="country" name="country">
+            </div>
+
+<hr>
+<div class="fieldgroup">
+                <label for="date" style="color:white">Date:</label><br>
+                <input class="form-control"  id="date" name="date" placeholder="MM/DD/YYY" type="text" style="width:200px;color:black;border:thin solid black" />
+                    
+            </div>
+
+<hr>
+
+<div class="fieldgroup">
+<label for="phone" style="color:white">Phone:</label><br>
+
+<br>
+<input type="text" class="form-control bfh-phone" placeholder="Phone-number" style="width:200px" data-country="countries_phone1">
 </div>
+            <div class="fieldgroup">
+                <label for="pin" style="color:white" >Pin:</label><br>
+                <input type="text" placeholder="PIN" name="pin">
+            </div>
+
+            <div class="fieldgroup">
+                <p class="right" style="color:white">By clicking BOOK you agree to our <a target="_blank" href="/policy" style="color:red">policy</a>.</p>
+                <input type="submit" class="btn btn-danger" value="BOOK Now" class="submit">
+            </div>
+
+        </fieldset>
+    </div>
+
+       
+</form>
+<!-- END HTML form for validation -->
+</div>
+</div>
+</div> <!-- end page wrap -->
 
 
 
 
- 
-<br>
-<br>
-<br>
 
 
-
-
-
-
-
-
-
-
-   <!-- Footer -->
+<!-- Footer -->
     <footer class="text-center">
         <div class="footer-above">
             <div class="container">
@@ -239,34 +299,9 @@ h3{
     </footer>
 
 
- <!-- jQuery -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
-
-    <!-- Theme JavaScript -->
-    <script src="js/freelancer.min.js"></script>
-    <!--newly added-->
-    <!--  jQuery -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-
-<!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap 
-<link rel="stylesheet" href="https://formden.com/static/cdn/bootstrap-iso.css" />-->
-
 <!-- Bootstrap Date-Picker Plugin -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
-<script type="text/javascript" src="js/booking_form.js"></script>
-
-
 <script>
     $(document).ready(function(){
       var date_input=$('input[name="date"]'); //our date input has the name "date"
